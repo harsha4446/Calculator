@@ -141,7 +141,7 @@
         android:text="-"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/sign"
+        android:id="@+id/button41"
         android:layout_alignBaseline="@+id/num1"
         android:layout_alignBottom="@+id/num1"
         android:layout_alignStart="@+id/sub" />
@@ -180,9 +180,9 @@
         android:id="@+id/button39"
         android:layout_height="30dp"
         android:layout_below="@+id/num3"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/num2" />
 
     <Button
         android:text="4"
@@ -219,5 +219,13 @@
         android:layout_alignBaseline="@+id/button26"
         android:layout_alignBottom="@+id/button26"
         android:layout_alignStart="@+id/byx" />
+
+    <Button
+        android:text="0"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/num0"
+        android:layout_alignTop="@+id/button39"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
