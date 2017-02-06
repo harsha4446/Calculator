@@ -20,25 +20,6 @@
         android:layout_alignStart="@+id/add" />
 
     <Button
-        android:text="CE"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:id="@+id/ce"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="100dp" />
-
-    <Button
         android:text="^"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -63,17 +44,9 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/num8"
-        android:layout_alignBaseline="@+id/button26"
-        android:layout_alignBottom="@+id/button26"
+        android:layout_alignBaseline="@+id/num7"
+        android:layout_alignBottom="@+id/num7"
         android:layout_alignStart="@+id/c" />
-
-    <Button
-        android:text="7"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/button26"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
 
     <Button
         android:text="7"
@@ -100,15 +73,6 @@
         android:layout_alignBaseline="@+id/num4"
         android:layout_alignBottom="@+id/num4"
         android:layout_alignStart="@+id/mul" />
-
-    <Button
-        android:text="1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/num1"
-        android:layout_below="@+id/sub"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
 
     <Button
         android:text="6"
@@ -141,7 +105,7 @@
         android:text="-"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/button41"
+        android:id="@+id/sign"
         android:layout_alignBaseline="@+id/num1"
         android:layout_alignBottom="@+id/num1"
         android:layout_alignStart="@+id/sub" />
@@ -198,8 +162,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/num9"
-        android:layout_alignBaseline="@+id/button26"
-        android:layout_alignBottom="@+id/button26"
+        android:layout_alignBaseline="@+id/num7"
+        android:layout_alignBottom="@+id/num7"
         android:layout_toStartOf="@+id/ex" />
 
     <Button
@@ -207,8 +171,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/mul"
-        android:layout_alignBaseline="@+id/button26"
-        android:layout_alignBottom="@+id/button26"
+        android:layout_alignBaseline="@+id/num7"
+        android:layout_alignBottom="@+id/num7"
         android:layout_alignStart="@+id/ex" />
 
     <Button
@@ -216,8 +180,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/add"
-        android:layout_alignBaseline="@+id/button26"
-        android:layout_alignBottom="@+id/button26"
+        android:layout_alignBaseline="@+id/num7"
+        android:layout_alignBottom="@+id/num7"
         android:layout_alignStart="@+id/byx" />
 
     <Button
@@ -227,5 +191,31 @@
         android:id="@+id/num0"
         android:layout_alignTop="@+id/button39"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="CE"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ce"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/num7"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/num1"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/num6"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/box"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

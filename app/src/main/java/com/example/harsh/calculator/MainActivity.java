@@ -5,13 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import static android.R.id.edit;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button add,sub,div,mul,ce,c,back,ex,byx;
     Button num[] = new Button[9];
-    EditText box;
+    TextView box;
+    String y;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         back=(Button)findViewById(R.id.b);
         ex=(Button)findViewById(R.id.ex);
         byx=(Button)findViewById(R.id.byx);
-        box=(EditText)findViewById(R.id.editText);
+        box=(TextView)findViewById(R.id.box);
         num[0].setOnClickListener(this);
         num[1].setOnClickListener(this);
         num[2].setOnClickListener(this);
@@ -57,11 +59,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         byx.setOnClickListener(this);
 
     }
+    public void display(int x){
+        y=box.getText();
 
+    }
     public void onClick(View v){
+
         switch(v.getId()){
-            case R.id.num0:
+            case R.id.num0: display(0);
                             break;
+
             case R.id.num1:
                             break;
         }
