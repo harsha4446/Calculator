@@ -11,9 +11,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button add,sub,div,mul,ce,c,back,ex,byx,equal;
     Button num[] = new Button[10];
     TextView box;
-    int operand[]=new int[10];
+    double operand[]=new double[10];
     int operator[]=new int[10];
-    int i,res,j,h,k;
+    int i,j,h,k;
+    double res;
     String prev;
     String history[]=new String[5];
 
@@ -133,10 +134,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     operand[j]=res;
                                     break;
                             }
-                     }
+                         }
+                        operand[0]=res;
+                        for(j=1;j<10;j++) {
+                            operand[j] = 0;
+                            operator[j] = 0;
+                        }
                         box.setText(""+res);
-                        history[h]+="="+res;
+                        history[h]+= "="+res;
                         h++;
+                        i=0;
+                        break;
+                case 17:if(box.getText().toString().length()==0)
+                            break;
+                        if(operand[i]==0 || (operand[i]/10)==0) {
+                             operator[i] = 0;
+                             i--;
+                        }
+                        else
+                            operand[i]=(operand[i]/10);
+                        prev=box.getText().toString();
+                        prev=prev.substring(0,prev.length()-1);
+                        box.setText(prev);
                         break;
                     }
             }
@@ -180,7 +199,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             history[h]=box.getText().toString();
                             break;
            case R.id.ce: clear_all();
-                        break;
+                            break;
+           case R.id.ba: display(17);
+                         if(box.getText().toString().length()==0)
+                             clear_all();
+                            break;
         }
 
     }

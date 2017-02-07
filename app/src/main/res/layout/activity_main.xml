@@ -190,7 +190,9 @@
         android:layout_height="50dp"
         android:id="@+id/num0"
         android:layout_alignTop="@+id/equal"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/equal"
+        android:layout_alignParentBottom="true" />
 
     <Button
         android:text="CE"
