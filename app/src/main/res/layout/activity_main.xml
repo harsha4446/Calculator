@@ -216,6 +216,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:id="@+id/box"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:fontFamily="cursive"
+        android:textAlignment="textEnd"
+        android:textSize="60sp"
+        android:typeface="sans"
+        android:textStyle="normal|bold" />
 
 </RelativeLayout>

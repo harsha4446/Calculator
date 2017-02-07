@@ -13,8 +13,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView box;
     int operand[]=new int[10];
     int operator[]=new int[10];
-    int i,res,j,k;
+    int i,res,j,h,k;
     String prev;
+    String history[]=new String[5];
 
     MainActivity(){
         for(i=0;i<=9;i++){
@@ -23,7 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         i=0;
         j=0;
+        k=0;
         res=0;
+        h=0;
     }
 
     @Override
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         i=0;
         j=0;
+        k=0;
         res=0;
         box.setText("");
     }
@@ -131,6 +135,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                      }
                         box.setText(""+res);
+                        history[h]+="="+res;
+                        h++;
                         break;
                     }
             }
@@ -171,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             display(13);
                             break;
             case R.id.equal:display(16);
+                            history[h]=box.getText().toString();
                             break;
            case R.id.ce: clear_all();
                         break;
