@@ -24,9 +24,9 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/ex"
-        android:layout_alignBaseline="@+id/b"
-        android:layout_alignBottom="@+id/b"
-        android:layout_toEndOf="@+id/b"
+        android:layout_alignBaseline="@+id/ba"
+        android:layout_alignBottom="@+id/ba"
+        android:layout_toEndOf="@+id/ba"
         android:layout_marginStart="24dp" />
 
     <Button
@@ -46,7 +46,7 @@
         android:id="@+id/num8"
         android:layout_alignBaseline="@+id/num7"
         android:layout_alignBottom="@+id/num7"
-        android:layout_alignStart="@+id/c" />
+        android:layout_alignStart="@+id/cl" />
 
     <Button
         android:text="7"
@@ -123,25 +123,25 @@
         android:text="C"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/c"
+        android:id="@+id/cl"
         android:layout_marginStart="27dp"
         android:layout_alignBaseline="@+id/ce"
         android:layout_alignBottom="@+id/ce"
         android:layout_toEndOf="@+id/ce" />
 
     <Button
-        android:text="<-"
+        android:text="Del"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/b"
-        android:layout_alignBaseline="@+id/c"
-        android:layout_alignBottom="@+id/c"
+        android:id="@+id/ba"
+        android:layout_alignBaseline="@+id/cl"
+        android:layout_alignBottom="@+id/cl"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:text="="
         android:layout_width="wrap_content"
-        android:id="@+id/button39"
+        android:id="@+id/equal"
         android:layout_height="30dp"
         android:layout_below="@+id/num3"
         android:layout_alignParentEnd="true"
@@ -189,7 +189,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/num0"
-        android:layout_alignTop="@+id/button39"
+        android:layout_alignTop="@+id/equal"
         android:layout_alignParentStart="true" />
 
     <Button

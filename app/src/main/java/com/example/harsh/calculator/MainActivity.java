@@ -4,17 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import static android.R.id.edit;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    Button add,sub,div,mul,ce,c,back,ex,byx;
-    Button num[] = new Button[9];
+    Button add,sub,div,mul,ce,c,back,ex,byx,equal;
+    Button num[] = new Button[10];
     TextView box;
     int operand[]=new int[10];
-    int operator[]=new int [9];
+    int operator[]=new int[10];
     int i,res,j,k;
     String prev;
 
@@ -24,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             operator[i]=0;
         }
         i=0;
+        j=0;
         res=0;
     }
 
@@ -46,10 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mul=(Button)findViewById(R.id.mul);
         div=(Button)findViewById(R.id.div);
         ce=(Button)findViewById(R.id.ce);
-        c=(Button)findViewById(R.id.c);
-        back=(Button)findViewById(R.id.b);
+        c=(Button)findViewById(R.id.cl);
+        back=(Button)findViewById(R.id.ba);
         ex=(Button)findViewById(R.id.ex);
         byx=(Button)findViewById(R.id.byx);
+        equal=(Button)findViewById(R.id.equal);
         box=(TextView)findViewById(R.id.box);
         num[0].setOnClickListener(this);
         num[1].setOnClickListener(this);
@@ -70,66 +70,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         back.setOnClickListener(this);
         ex.setOnClickListener(this);
         byx.setOnClickListener(this);
+        equal.setOnClickListener(this);
+
     }
     public void display(int x){
         if(x<=9) {
             operand[i] = (operand[i] * 10) + x;
-            prev=box.getText().toString()+"x";
+            prev=box.getText().toString()+x;
             box.setText(prev);
         }
         else{
             switch(x){
                 case 10: box.setText(box.getText().toString()+"+");
-                            operator[i]=10;
-                             break;
+                         operator[i]=10;
+                         break;
                 case 11: box.setText(box.getText().toString()+"-");
-                    operator[i]=11;
-                             break;
+                         operator[i]=11;
+                         break;
                 case 12: box.setText(box.getText().toString()+"*");
-                    operator[i]=12;
-                             break;
+                         operator[i]=12;
+                         break;
                 case 13: box.setText(box.getText().toString()+"/");
-                    operator[i]=13;
-                             break;
+                         operator[i]=13;
+                         break;
                 case 14: box.setText(box.getText().toString()+"^");
-                    operator[i]=14;
-                              break;
+                         operator[i]=14;
+                         break;
                 case 15: box.setText(box.getText().toString()+"1/x");
-                    operator[i]=10;
-                              break;
-                case 16: for(j=0;j<i;j++){
-                            if(operator[j]==0)
-                            {
-                                break;
+                         operator[i]=15;
+                         break;
+                case 16: for(j=1;j<=i;j++){
+                            switch(operator[j]){
+                                case 10: res=operand[j-1]+operand[j];
+                                    operand[j]=res;
+                                    break;
+                                case 11: res=operand[j-1]-operand[j];
+                                    operand[j]=res;
+                                    break;
+                                case 12: res=operand[j-1]*operand[j];
+                                    operand[j]=res;
+                                    break;
+                                case 13: res=operand[j-1]/operand[j];
+                                    operand[j]=res;
+                                    break;
+                                case 14: for(k=0;k<operand[j];k++)
+                                    res=operand[j-1]*operand[j-1];
+                                    operand[j]=res;
+                                    break;
                             }
-                            else{
-                                switch(operator[j]){
-                                    case 10: res=operand[j]+operand[j+1];
-                                            operand[j]=res;
-                                            break;
-                                    case 11: res=operand[j]-operand[j+1];
-                                            operand[j]=res;
-                                            break;
-                                    case 12: res=operand[j]*operand[j+1];
-                                            operand[j]=res;
-                                            break;
-                                    case 13: res=operand[j]/operand[j+1];
-                                            operand[j]=res;
-                                            break;
-                                    case 14: for(k=0;k<operand[j+1];k++)
-                                                res=operand[j]*operand[j];
-                                                operand[j]=res;
-                                                break;
-                                }
-                            }
-                }
-                    box.setText(res);
+                        }
+                        box.setText(res);
+                        break;
+                    }
             }
-        }
     }
     public void onClick(View v){
 
-        switch(v.getId()){
+       switch(v.getId()){
             case R.id.num0: display(0);
                             break;
             case R.id.num1: display(1);
@@ -150,8 +147,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
             case R.id.num9: display(9);
                             break;
-            case R.id.add: display(10);
-                            i++;
+            case R.id.add:  i++;
+                            display(10);
+                            break;
+            case R.id.sub:  i++;
+                            display(11);
+                            break;
+            case R.id.mul:  i++;
+                            display(12);
+                            break;
+            case R.id.div:  i++;
+                            display(13);
+                            break;
+            case R.id.equal: Toast.makeText(getApplicationContext(),"Equals clicked",Toast.LENGTH_LONG).show();
+                            display(16);
                             break;
         }
 
