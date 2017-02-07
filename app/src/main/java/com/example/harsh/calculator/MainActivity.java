@@ -71,8 +71,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ex.setOnClickListener(this);
         byx.setOnClickListener(this);
         equal.setOnClickListener(this);
-
     }
+
+    public void clear_all(){
+        for(i=0;i<=9;i++){
+            operand[i]=0;
+            operator[i]=0;
+        }
+        i=0;
+        j=0;
+        res=0;
+        box.setText("");
+    }
+
     public void display(int x){
         if(x<=9) {
             operand[i] = (operand[i] * 10) + x;
@@ -100,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                          operator[i]=15;
                          break;
                 case 16: for(j=1;j<=i;j++){
-                            switch(operator[j]){
+                           switch(operator[j]){
                                 case 10: res=operand[j-1]+operand[j];
                                     operand[j]=res;
                                     break;
@@ -118,8 +129,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     operand[j]=res;
                                     break;
                             }
-                        }
-                        box.setText(res);
+                     }
+                        box.setText(""+res);
                         break;
                     }
             }
@@ -159,9 +170,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.div:  i++;
                             display(13);
                             break;
-            case R.id.equal: Toast.makeText(getApplicationContext(),"Equals clicked",Toast.LENGTH_LONG).show();
-                            display(16);
+            case R.id.equal:display(16);
                             break;
+           case R.id.ce: clear_all();
+                        break;
         }
 
     }
