@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView box;
     int operand[]=new int[10];
     int operator[]=new int [9];
-    int i,flag;
+    int i,res,j,k;
     String prev;
 
     MainActivity(){
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             operator[i]=0;
         }
         i=0;
-        flag=0;
+        res=0;
     }
 
     @Override
@@ -81,22 +81,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch(x){
                 case 10: box.setText(box.getText().toString()+"+");
                             operator[i]=10;
-                        break;
+                             break;
                 case 11: box.setText(box.getText().toString()+"-");
                     operator[i]=11;
-                    break;
+                             break;
                 case 12: box.setText(box.getText().toString()+"*");
                     operator[i]=12;
-                    break;
+                             break;
                 case 13: box.setText(box.getText().toString()+"/");
                     operator[i]=13;
-                    break;
+                             break;
                 case 14: box.setText(box.getText().toString()+"^");
                     operator[i]=14;
-                    break;
-                case 15: box.setText(box.getText().toString()+"");
+                              break;
+                case 15: box.setText(box.getText().toString()+"1/x");
                     operator[i]=10;
-                    break;
+                              break;
+                case 16: for(j=0;j<i;j++){
+                            if(operator[j]==0)
+                            {
+                                break;
+                            }
+                            else{
+                                switch(operator[j]){
+                                    case 10: res=operand[j]+operand[j+1];
+                                            operand[j]=res;
+                                            break;
+                                    case 11: res=operand[j]-operand[j+1];
+                                            operand[j]=res;
+                                            break;
+                                    case 12: res=operand[j]*operand[j+1];
+                                            operand[j]=res;
+                                            break;
+                                    case 13: res=operand[j]/operand[j+1];
+                                            operand[j]=res;
+                                            break;
+                                    case 14: for(k=0;k<operand[j+1];k++)
+                                                res=operand[j]*operand[j];
+                                                operand[j]=res;
+                                                break;
+                                }
+                            }
+                }
+                    box.setText(res);
             }
         }
     }
