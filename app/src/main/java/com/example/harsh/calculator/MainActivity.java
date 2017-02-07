@@ -13,7 +13,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button add,sub,div,mul,ce,c,back,ex,byx;
     Button num[] = new Button[9];
     TextView box;
-    String y;
+    int operand[]=new int[10];
+    int operator[]=new int [9];
+    int i,flag;
+    String prev;
+
+    MainActivity(){
+        for(i=0;i<=9;i++){
+            operand[i]=0;
+            operator[i]=0;
+        }
+        i=0;
+        flag=0;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,19 +70,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         back.setOnClickListener(this);
         ex.setOnClickListener(this);
         byx.setOnClickListener(this);
-
     }
     public void display(int x){
-        y=box.getText();
-
+        if(x<=9) {
+            operand[i] = (operand[i] * 10) + x;
+            prev=box.getText().toString()+"x";
+            box.setText(prev);
+        }
+        else{
+            switch(x){
+                case 10: box.setText(box.getText().toString()+"+");
+                            operator[i]=10;
+                        break;
+                case 11: box.setText(box.getText().toString()+"-");
+                    operator[i]=11;
+                    break;
+                case 12: box.setText(box.getText().toString()+"*");
+                    operator[i]=12;
+                    break;
+                case 13: box.setText(box.getText().toString()+"/");
+                    operator[i]=13;
+                    break;
+                case 14: box.setText(box.getText().toString()+"^");
+                    operator[i]=14;
+                    break;
+                case 15: box.setText(box.getText().toString()+"");
+                    operator[i]=10;
+                    break;
+            }
+        }
     }
     public void onClick(View v){
 
         switch(v.getId()){
             case R.id.num0: display(0);
                             break;
-
-            case R.id.num1:
+            case R.id.num1: display(1);
+                            break;
+            case R.id.num2: display(2);
+                            break;
+            case R.id.num3: display(3);
+                            break;
+            case R.id.num4: display(4);
+                            break;
+            case R.id.num5: display(5);
+                            break;
+            case R.id.num6: display(6);
+                            break;
+            case R.id.num7: display(7);
+                            break;
+            case R.id.num8: display(8);
+                            break;
+            case R.id.num9: display(9);
+                            break;
+            case R.id.add: display(10);
+                            i++;
                             break;
         }
 
